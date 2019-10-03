@@ -16,4 +16,31 @@ export class ApiService {
       "https://api014-erin-erin.herokuapp.com/api/kindergartens"
     );
   }
+
+  login(data) {
+    return this.httpClient.post(
+      "https://api014-erin-erin.herokuapp.com/api/login",
+      data
+    );
+  }
+
+  addKindergarten(data) {
+    return this.httpClient.post(
+      "https://api014-erin-erin.herokuapp.com/api/kindergartens",
+      data
+    );
+  }
+
+  getKindergatenById(id) {
+    return this.httpClient.get(
+      "https://api014-erin-erin.herokuapp.com/api/kindergartens/" + id
+    );
+  }
+
+  editKindergatenById(id, data) {
+    return this.httpClient.post(
+      "https://api014-erin-erin.herokuapp.com/api/kindergartens/" + id,
+      data
+    );
+  }
 }

@@ -6,11 +6,21 @@ import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
 import { MainComponent } from "./main/main.component";
-import { HttpClientModule } from "@angular/common/http"; //3
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms"; //4 ng model need import form
+import { LoginComponent } from "./login/login.component";
+import { EditKindergartenComponent } from './edit-kindergarten/edit-kindergarten.component'; //3
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, MainComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule], //3
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    MainComponent,
+    LoginComponent,
+    EditKindergartenComponent
+  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule], //3
   providers: [],
   bootstrap: [AppComponent]
 })

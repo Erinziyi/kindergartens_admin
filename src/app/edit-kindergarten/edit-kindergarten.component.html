@@ -1,0 +1,128 @@
+<div class="container py-5">
+  <div
+    *ngIf="success"
+    class="alert alert-success alert-dismissible fade show"
+    role="alert"
+  >
+    Kindergarden succesfully updates!
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      [routerLink]="['/main']"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <h3>Edit Kindergartens</h3>
+  <div class="card py-3 px-3 bg-secondary text-light">
+    <div class="form-group">
+      <label for="exampleInputName">Kindergarden Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputName"
+        placeholder="Enter Kindergarden Name  "
+        [(ngModel)]="editData.name"
+        name="name"
+      />
+
+      <div class="form-group">
+        <label for="exampleInputDescription">Description</label>
+        <textarea
+          class="form-control"
+          id="exampleInputDescription"
+          rows="3"
+          [(ngModel)]="editData.description"
+          name="description"
+        ></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail">Enter Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail"
+        placeholder="Enter Email"
+        [(ngModel)]="editData.email"
+        name="email"
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPhone">Enter Phone</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputPhone"
+        placeholder="Enter Phone"
+        [(ngModel)]="editData.phone"
+        name="phone"
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleInputUrl">Enter Url</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputUrl"
+        placeholder="Enter Url "
+        [(ngModel)]="editData.url"
+        name="url"
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleInputOpeningHours">Enter Opening Hours</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputOpeningHours"
+        placeholder="Enter Opening Hours "
+        [(ngModel)]="editData.openinghours"
+        name="openinghours"
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleInputImageUrl">Enter Image Url</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputImageUrl"
+        placeholder="Enter Image Url "
+        [(ngModel)]="editData.imageurl"
+        name="imageurl"
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleInputLatitude">Enter Latitude</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputLatitude"
+        placeholder="Enter Latitude "
+        [(ngModel)]="editData.latitude"
+        name="latitude"
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleInputLongitude">Enter Longitude</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputLongitude"
+        placeholder="Enter Longitude "
+        [(ngModel)]="editData.longitude"
+        name="longitude"
+      />
+    </div>
+    <button
+      type="button"
+      class="btn btn-success"
+      (click)="editKindergarten()"
+      [class.disabled]="isLoading"
+    >
+      <i class="fas fa-spinner fa spin" *ngIf="isLoading"></i>
+      Update
+    </button>
+  </div>
+</div>
