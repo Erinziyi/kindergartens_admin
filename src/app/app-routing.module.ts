@@ -3,11 +3,13 @@ import { Routes, RouterModule } from "@angular/router";
 import { MainComponent } from "./main/main.component"; //1
 import { LoginComponent } from "./login/login.component"; //1
 import { EditKindergartenComponent } from "./edit-kindergarten/edit-kindergarten.component"; //1
+import { AuthGuardGuard } from "./auth-guard.guard"; //2
 
 const routes: Routes = [
   {
     path: "main",
-    component: MainComponent //2
+    component: MainComponent, //2
+    canActivate: [AuthGuardGuard] //3 protecte link
   },
   {
     path: "login",
@@ -15,7 +17,13 @@ const routes: Routes = [
   },
   {
     path: "edit/:id",
-    component: EditKindergartenComponent //2
+    component: EditKindergartenComponent,
+    canActivate: [AuthGuardGuard] //2
+  },
+  {
+    path: "**",
+    component: LoginComponent
+    //3 404 back to login
   }
 ];
 

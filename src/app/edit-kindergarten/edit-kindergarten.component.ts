@@ -22,6 +22,7 @@ export class EditKindergartenComponent implements OnInit {
   id;
   success = false;
   isLoading = false;
+  error = false;
   constructor(
     public activatedRouted: ActivatedRoute,
     public apiService: ApiService
@@ -38,14 +39,19 @@ export class EditKindergartenComponent implements OnInit {
 
   editKindergarten() {
     this.isLoading = true;
-    this.apiService
-      .editKindergatenById(this.id, this.editData)
-      .subscribe(resp => {
+    this.error = false;
+    this.apiService.editKindergatenById(this.id, this.editData).subscribe(
+      resp => {
         console.log(resp);
         this.isLoading = false;
         if (resp["message"] == "Kindergaten succesfully updated!") {
           this.success = true;
         }
-      });
+      },
+      err => {
+        this.isLoading = false;
+        this.error = true;
+      }
+    );
   }
 }

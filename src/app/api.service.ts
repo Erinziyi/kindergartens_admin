@@ -1,12 +1,11 @@
 import { Injectable } from "@angular/core";
 //1)Import
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 @Injectable({
   providedIn: "root"
 })
 export class ApiService {
   //2)Inject
-
   constructor(public httpClient: HttpClient) {}
 
   //3)Implement
@@ -25,9 +24,16 @@ export class ApiService {
   }
 
   addKindergarten(data) {
+    let httpHeaders = {
+      headers: new HttpHeaders().set(
+        "Authorization",
+        "Bearer" + localStorage.getItem("token")
+      )
+    };
     return this.httpClient.post(
       "https://api014-erin-erin.herokuapp.com/api/kindergartens",
-      data
+      data,
+      httpHeaders
     );
   }
 
@@ -38,9 +44,16 @@ export class ApiService {
   }
 
   editKindergatenById(id, data) {
+    let httpHeaders = {
+      headers: new HttpHeaders().set(
+        "Authorization",
+        "Bearer" + localStorage.getItem("token")
+      )
+    };
     return this.httpClient.post(
       "https://api014-erin-erin.herokuapp.com/api/kindergartens/" + id,
-      data
+      data,
+      httpHeaders
     );
   }
 }

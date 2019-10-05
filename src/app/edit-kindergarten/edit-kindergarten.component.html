@@ -14,6 +14,21 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+  <div
+    *ngIf="error"
+    class="alert alert-danger alert-dismissible fade show"
+    role="alert"
+  >
+    Something is wrong!
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      [routerLink]="['/main']"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
   <h3>Edit Kindergartens</h3>
   <div class="card py-3 px-3 bg-secondary text-light">
     <div class="form-group">
